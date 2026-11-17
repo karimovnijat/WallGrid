@@ -1,0 +1,30 @@
+{
+  "name": "wallgrid",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Turn a grid of monitors into one configurable video wall: split, merge and drag screens, each showing any web page.",
+  "keywords": [
+    "video-wall",
+    "digital-signage",
+    "dashboard",
+    "kiosk",
+    "multi-monitor",
+    "iframe",
+    "drag-and-drop",
+    "vanilla-js"
+  ],
+  "homepage": "https://github.com/karimovnijat/WallGrid#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karimovnijat/WallGrid.git"
+  },
+  "bugs": {
+    "url": "https://github.com/karimovnijat/WallGrid/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}

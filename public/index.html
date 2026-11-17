@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WallGrid</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- The wall: every screen lives here, each with its own iframe -->
+  <main id="wall">
+    <div id="preview"><span></span></div>
+  </main>
+
+  <!-- Hidden hot corner: move the mouse to the top-left corner → ⚙ appears -->
+  <div id="hotcorner" title="Settings (Ctrl+Shift+E)"><button type="button">⚙</button></div>
+
+  <!-- Edit toolbar -->
+  <div id="toolbar" class="is-compact">
+    <div class="toolbar-header">
+      <button id="t-drag" class="brand" type="button" title="Drag the toolbar or move it with arrow keys" aria-label="Move toolbar">⠿ WallGrid</button>
+      <button id="t-toggle" type="button" aria-expanded="false" aria-controls="toolbar-details">Settings ▾</button>
+      <button id="t-done" type="button" class="primary">Done ✓</button>
+    </div>
+    <div id="toolbar-details">
+    <div class="tb-group tb-language"><label>Language <select id="t-language"><option value="az">Azərbaycan dili</option><option value="en">English</option><option value="ru">Русский</option></select></label></div>
+
+    <div class="tb-group tb-grid">
+      <label>Rows <input id="t-rows" type="number" min="1" max="16"></label>
+      <label>Columns <input id="t-cols" type="number" min="1" max="16"></label>
+      <label title="Divide each monitor into smaller areas">Monitor subdivision
+        <select id="t-sub">
+          <option value="1">none</option>
+          <option value="2">2×2</option>
+          <option value="3">3×3</option>
+          <option value="4">4×4</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="tb-group tb-preset">
+      <select id="t-preset" aria-label="Layout preset"></select>
+      <button id="t-apply" type="button">Apply</button>
+      <button id="t-fill" type="button" title="Add screens to empty cells">Fill empty areas</button>
+    </div>
+
+    <div class="tb-group tb-appearance">
+      <label title="Gap between screens (bezel compensation)">Gap (px) <input id="t-gap" type="number" min="0" max="60"></label>
+      <label>Background <input id="t-bg" type="color"></label>
+      <label title="Leave blank to edit without a PIN">PIN <input id="t-pin" type="password" size="5" autocomplete="off"></label>
+    </div>
+
+    <div class="tb-group tb-permission">
+      <label><input id="t-source-swap" type="checkbox"><span>Allow viewers to swap screen content</span></label>
+      <small>Screen sizes and positions stay fixed.</small>
+    </div>
+    <div class="tb-group tb-actions">
+      <button id="t-undo" type="button" title="Ctrl+Z">↶ Undo</button>
+      <button id="t-export" type="button">Export</button>
+      <button id="t-import" type="button">Import</button>
+      <input id="t-file" type="file" accept=".json,application/json" hidden>
+    </div>
+
+    <div class="tb-group tb-status">
+      <span id="t-status"></span>
+      <button id="t-move" type="button" title="Move toolbar to top / bottom">⇅</button>
+    </div>
+    </div>
+  </div>
+
+
+
+  <!-- Settings for the selected screen -->
+  <aside id="drawer">
+    <header>
+      <h3>Screen settings</h3>
+      <button type="button" data-close title="Close (Esc)">✕</button>
+    </header>
+    <div class="d-body">
+      <label>Name
+        <input id="f-title" type="text">
+      </label>
+      <label>Content type
+        <select id="f-source"><option value="url">Link (URL)</option><option value="embed">Embed code</option></select>
+      </label>
+      <label id="f-url-group">URL — link to display on this screen
+        <input id="f-url" type="text" placeholder="https://..." spellcheck="false">
+      </label>
+      <label id="f-embed-group" hidden>Paste embed code
+        <textarea id="f-embed" rows="6" placeholder='<iframe src="https://..."></iframe>' spellcheck="false"></textarea>
+        <small>Paste the site's iframe code. Script-based embeds are not supported.</small>
+      </label>
+      <p id="f-source-error" role="alert" hidden></p>
+      <label>Zoom: <b id="f-zoom-val">100%</b>
+        <input id="f-zoom" type="range" min="25" max="300" step="5">
+      </label>
+      <label>Auto refresh (seconds, 0 = off)
+        <input id="f-refresh" type="number" min="0" step="10">
+      </label>
+      <label class="chk"><input id="f-show" type="checkbox"> Show name in the screen corner</label>
+      <div class="drawer-save">
+        <button id="f-apply" type="button" class="primary">Apply</button>
+        <p id="f-save-status" role="status" aria-live="polite"></p>
+      </div>
+      <div id="f-info" class="d-info"></div>
+      <div class="d-actions">
+        <button type="button" data-do="reload">⟳ Reload</button>
+        <button type="button" data-do="open">↗ Open in new tab</button>
+        <button type="button" data-do="split">⊞ Split</button>
+        <button type="button" data-do="delete" class="danger">🗑 Delete</button>
+      </div>
+    </div>
+  </aside>
+
+  <div id="toast"></div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

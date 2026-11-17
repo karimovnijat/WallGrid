@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "updatedAt": 0,
+  "language": "en",
+  "grid": {
+    "rows": 3,
+    "cols": 3,
+    "sub": 1
+  },
+  "style": {
+    "gap": 0,
+    "background": "#000000"
+  },
+  "allowSourceSwap": false,
+  "security": {
+    "pin": ""
+  },
+  "panels": [
+    {
+      "id": "demo-traffic",
+      "title": "Traffic",
+      "x": 0,
+      "y": 0,
+      "w": 2,
+      "h": 2,
+      "url": "/demo/?kind=chart&title=Live%20traffic&hue=205",
+      "sourceType": "url",
+      "embedCode": "",
+      "zoom": 100,
+      "refresh": 0,
+      "showTitle": false
+    },
+    {
+      "id": "demo-clock",
+      "title": "Clock",
+      "x": 2,
+      "y": 0,
+      "w": 1,
+      "h": 1,
+      "url": "/demo/?kind=clock&title=Baku&hue=260",
+      "sourceType": "url",
+      "embedCode": "",
+      "zoom": 100,
+      "refresh": 0,
+      "showTitle": false
+    },
+    {
+      "id": "demo-kpi",
+      "title": "KPIs",
+      "x": 2,
+      "y": 1,
+      "w": 1,
+      "h": 1,
+      "url": "/demo/?kind=stats&title=Today&hue=150",
+      "sourceType": "url",
+      "embedCode": "",
+      "zoom": 100,
+      "refresh": 0,
+      "showTitle": false
+    },
+    {
+      "id": "demo-map",
+      "title": "Network map",
+      "x": 0,
+      "y": 2,
+      "w": 1,
+      "h": 1,
+      "url": "/demo/?kind=map&title=Sites&hue=185",
+      "sourceType": "url",
+      "embedCode": "",
+      "zoom": 100,
+      "refresh": 0,
+      "showTitle": false
+    },
+    {
+      "id": "demo-sales",
+      "title": "Sales",
+      "x": 1,
+      "y": 2,
+      "w": 1,
+      "h": 1,
+      "url": "/demo/?kind=chart&title=Sales&hue=30",
+      "sourceType": "url",
+      "embedCode": "",
+      "zoom": 100,
+      "refresh": 0,
+      "showTitle": false
+    },
+    {
+      "id": "demo-utc",
+      "title": "UTC",
+      "x": 2,
+      "y": 2,
+      "w": 1,
+      "h": 1,
+      "url": "/demo/?kind=clock&title=Server%20time&hue=330",
+      "sourceType": "url",
+      "embedCode": "",
+      "zoom": 100,
+      "refresh": 0,
+      "showTitle": false
+    }
+  ]
+}

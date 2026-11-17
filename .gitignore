@@ -1,0 +1,11 @@
+# Local runtime state — each installation keeps its own layout
+data/config.json
+data/config.backup.json
+data/*.tmp
+
+# Chrome kiosk profile created by start.sh / start.bat
+.chrome-profile/
+
+node_modules/
+.DS_Store
+Thumbs.db
